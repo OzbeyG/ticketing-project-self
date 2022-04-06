@@ -2,6 +2,7 @@ package com.cydeo.bootstrap;
 
 import com.cydeo.dto.ProjectDTO;
 import com.cydeo.dto.RoleDTO;
+import com.cydeo.dto.TaskDTO;
 import com.cydeo.dto.UserDTO;
 import com.cydeo.enums.Gender;
 import com.cydeo.enums.Status;
@@ -57,5 +58,10 @@ public class DataGenerator implements CommandLineRunner {
         projectService.save(project1);
         projectService.save(project2);
         projectService.save(project3);
+
+        TaskDTO task1 = new TaskDTO(project1, user1,"Controller","Request Mapping",Status.IN_PROGRESS,LocalDate.now().minusDays(4));
+        TaskDTO task2 = new TaskDTO(project1, user3,"Configuration","Database Connection",Status.OPEN,LocalDate.now().minusDays(12));
+        TaskDTO task3 = new TaskDTO(project1, user5,"Mapping","One-To-Many",Status.COMPLETE,LocalDate.now().minusDays(8));
+        TaskDTO task4 = new TaskDTO(project1, user2,"Dependency Injection","Autowired",Status.IN_PROGRESS,LocalDate.now().minusDays(20));
     }
 }
